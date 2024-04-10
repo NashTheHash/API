@@ -14,7 +14,7 @@ app.get('/cars', (req, res) => {
 
 
 //get car by id
-app.get('/cars/:id', cors(), (req, res) => {
+app.get('/cars/:id', (req, res) => {
     const id = req.params.id;
     const car = cars.find(car => car.id === id);
     res.json(car);
