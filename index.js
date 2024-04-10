@@ -8,7 +8,7 @@ const cars = require('./cars.json');
 
 
 //get all cars
-app.get('/cars', cors(), (req, res) => {
+app.get('/cars', (req, res) => {
     res.json(cars);
 });
 
@@ -22,7 +22,7 @@ app.get('/cars/:id', cors(), (req, res) => {
 
 
 //update car
-app.put('/cars/:id', cors(), (req, res) => {
+app.put('/cars/:id', (req, res) => {
     const id = req.params.id;
     const updatedCar = req.body;
     const index = cars.findIndex(car => car.id === id);
@@ -32,7 +32,7 @@ app.put('/cars/:id', cors(), (req, res) => {
 
 
 //delete car
-app.delete('/cars/:id', cors(), (req, res) => {
+app.delete('/cars/:id', (req, res) => {
     const id = req.params.id;
     const index = cars.findIndex(car => car.id === id);
     cars.splice(index, 1);
@@ -41,7 +41,7 @@ app.delete('/cars/:id', cors(), (req, res) => {
 
 
 //add car
-app.post('/cars', cors(), (req, res) => {
+app.post('/cars', (req, res) => {
     console.log(req);
     const newCar = req.body;
     console.log(newCar);
