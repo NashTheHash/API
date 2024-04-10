@@ -2,13 +2,13 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const cars = require('./cars.json');
 
 app.get('/cars', (req, res) => {
-    res.send("Hello, world!")
+    res.json(cars);
 });
 
-/*app.use(express.json());
-const cars = require('./cars.json');
+/*
 
 //get all cars
 app.get('/cars', (req, res) => {
