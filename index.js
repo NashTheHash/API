@@ -3,15 +3,13 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-
+app.use(express.json());
 const cars = require('./cars.json');
-
 
 //get all cars
 app.get('/cars', (req, res) => {
     res.json(cars);
 });
-
 
 //get car by id
 app.get('/cars/:id', (req, res) => {
@@ -19,7 +17,6 @@ app.get('/cars/:id', (req, res) => {
     const car = cars.find(car => car.id === id);
     res.json(car);
 });
-
 
 //update car
 app.put('/cars/:id', (req, res) => {
@@ -30,7 +27,6 @@ app.put('/cars/:id', (req, res) => {
     res.json(updatedCar);
 });
 
-
 //delete car
 app.delete('/cars/:id', (req, res) => {
     const id = req.params.id;
@@ -38,7 +34,6 @@ app.delete('/cars/:id', (req, res) => {
     cars.splice(index, 1);
     res.json({ message: `Car with id ${id} deleted` });
 });
-
 
 //add car
 app.post('/cars', (req, res) => {
@@ -55,4 +50,4 @@ app.listen(port, () => {
 });
 
 
-module.exports = azureFunctionHandler(app);
+//module.exports = azureFunctionHandler(app);
