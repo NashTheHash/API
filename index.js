@@ -4,8 +4,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 const cars = require('./cars.json');
 
-var cors = require('cors');
-app.use(cors());
 
 app.get('/cars', (req, res) => {
     res.json(cars);
