@@ -50,4 +50,4 @@ app.listen(port, () => {
 });
 
 
-//module.exports = azureFunctionHandler(app);
+module.exports = azureFunctionHandler(app);
