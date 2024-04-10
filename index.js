@@ -3,7 +3,10 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(express.json());
+app.get('/', (req, res) => {
+    res.send("Hello, world!")
+});
+/*app.use(express.json());
 const cars = require('./cars.json');
 
 //get all cars
@@ -44,10 +47,11 @@ app.post('/cars', (req, res) => {
     res.json(newCar);
 });
 
-
+*/
 app.listen(port, () => {
     console.log('Server runnning or port ${port}');
 });
 
 
-module.exports = azureFunctionHandler(app);
+//module.exports = azureFunctionHandler(app);
+
